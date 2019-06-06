@@ -8,7 +8,18 @@ const mysteryVideos = [
 	"https://www.youtube.com/watch?v=D5txvDBNgYc",
 	"https://www.youtube.com/watch?v=TCOOfNraqYw",
 	"https://www.youtube.com/watch?v=1XHTW79Qa6Y"
-]
+];
+
+const placeholderArray = [
+	"a better way to tube...",
+	"get your tube on...",
+	"don't let the tube tube you...",
+	"get ready to get tubed...",
+	"what is a tube...",
+	"tube it to the max...",
+	"welcome to tube city...",
+	"the only way to tube..."
+];
 
 const searchFunction = () => {
 
@@ -24,22 +35,26 @@ const searchFunction = () => {
 				finalInputString +=  "+";
 			};
 		};
-		clearInput();
+		resetInput();
 		return finalInputString;
 	};
-	clearInput();
+	resetInput();
 	window.location.href = ("https://www.youtube.com/results?search_query=" + processInput());
 };
 
-const clearInput = () => {
+const resetInput = () => {
+	let randomArrayNumber = Math.round(Math.random() * (placeholderArray.length - 1));
 	document.getElementById('input').value = "";
+	document.getElementById('input').placeholder = placeholderArray[randomArrayNumber];
 }
 
 const mysteryFunction = () => {
-	let randomArrayNumber = Math.round(Math.random()) * (mysteryVideos.length - 1);
-	clearInput();
+	let randomArrayNumber = Math.round(Math.random() * (mysteryVideos.length - 1));
+	resetInput();
 	window.location.href = mysteryVideos[randomArrayNumber];
 };
+
+resetInput();
 
 document.getElementById("button").addEventListener("click", searchFunction);
 document.getElementById("mysteryButton").addEventListener("click", mysteryFunction);
@@ -49,3 +64,8 @@ input.addEventListener("keyup", function(event) {
   	searchFunction();
   }
 }); 
+
+
+
+
+"a better way to tube..."
