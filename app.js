@@ -1,12 +1,14 @@
 const mysteryVideos = [
-	"https://www.youtube.com/watch?v=aGV_eeAvvzM",
-	"https://www.youtube.com/watch?v=GxYyuaTsVts",
-	"https://www.youtube.com/watch?v=-UYgORr5Qhg&t=0m57s",
-	"https://www.youtube.com/watch?v=_sh6MDFJdNU",
-	"https://www.youtube.com/watch?v=hqega6a2g6A",
-	"https://www.youtube.com/watch?v=D5txvDBNgYc",
-	"https://www.youtube.com/watch?v=TCOOfNraqYw",
-	"https://www.youtube.com/watch?v=1XHTW79Qa6Y"
+	"aGV_eeAvvzM",
+	"GxYyuaTsVts",
+	"-UYgORr5Qhg&t=0m57s",
+	"_sh6MDFJdNU",
+	"hqega6a2g6A",
+	"D5txvDBNgYc",
+	"TCOOfNraqYw",
+	"1XHTW79Qa6Y"
+	// https://www.youtube.com/watch?v=
+	// http://www.infinitelooper.com/?v=
 ];
 const placeholderArray = [
 	"focus, don't get distracted...",
@@ -69,7 +71,12 @@ const searchFunction = () => {
 		} else {
 			let randomArrayNumber = Math.round(Math.random() * (mysteryVideos.length - 1));
 			clearInput();
-			window.location.href = mysteryVideos[randomArrayNumber];
+			let isChecked = document.getElementById("checkBox").checked;
+			if (isChecked === false) {
+				window.location.href = ("https://www.youtube.com/watch?v=" + mysteryVideos[randomArrayNumber]);
+			} else {
+				window.location.href = ("http://www.infinitelooper.com/?v=" + mysteryVideos[randomArrayNumber]);
+			};
 		};
 	} else {
 		let inputRaw = document.getElementById('input').value;
@@ -86,7 +93,12 @@ const searchFunction = () => {
 			return finalInputString;
 		};
 		resetInput();
-		window.location.href = ("https://www.youtube.com/results?search_query=" + processInput());
+		let isChecked = document.getElementById("checkBox").checked;
+		if (isChecked === false) {
+			window.location.href = ("https://www.youtube.com/results?search_query=" + processInput());
+		} else {
+			window.location.href = ("http://www.infinitelooper.com/s?q=" + processInput());
+		};
 	};
 };
 const resetInput = () => {
@@ -101,9 +113,9 @@ const clearInput = () => {
 resetInput();
 document.getElementById("button").addEventListener("click", searchFunction);
 input.addEventListener("keyup", function(event) {
-  if (event.keyCode === 13) {
-  	searchFunction();
-  }
+	if (event.keyCode === 13) {
+		searchFunction();
+	}
 }); 
 for (i = 0; i < coll.length; i++) {
 		coll[i].addEventListener("click", function() {
