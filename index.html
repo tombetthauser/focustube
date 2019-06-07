@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>TomTube</title>
+	<title>FocusTube</title>
 	<link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" type="text/css" href="app.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.3">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-	<img class="logo" src="logo.jpg">
-	<input class="input" id="input" type="text" autofocus placeholder="">
-	<button class="search" id="button">search</button>
-	<button class="mysteryButton" id="mysteryButton">?</button>
-</body>
+<div class="outer">
+  <div class="middle">
+    <div class="inner">
+		<h3>
+			<span id="youSpan">Focus</span>
+			<span id="tubeSpan">Tube</span>
+		</h3>
+		<input class="input" id="input" type="text" autofocus placeholder="">
+		<button class="search" id="button">search</button>
+		<button class="collapsible"><img id="question" src="question.svg"></button>
+		<div class="content">
+		  <p>
+		  	A few lines of javascript that let you search YouTube's normal site without the temptation of all the irresistable video suggestions on their normal home page. For everyone out there who's tried to look up how to jump start a car or exit vim and accidentally found themselves watching vine compilations or cat fails for twenty minutes (or two hours).
+		  </p>
+		</div>
+    </div>
+  </div>
+</div>
 <script type="text/javascript" src="app.js"></script>
+</body>
 </html>
